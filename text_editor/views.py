@@ -9,7 +9,7 @@ def index(request):
 def analyze(request):
 	
 	#get the text
-	djtext=request.POST.get('text')
+	djtext=request.GET.get('text')
 	
 	
 	# get checkbox value
@@ -17,13 +17,13 @@ def analyze(request):
 	print(copied)
 	
 	
-	removepunc=request.POST.get('removepunc','off')
+	removepunc=request.GET.get('removepunc','off')
 	
-	uppercase=request.POST.get('uppercase','off')
+	uppercase=request.GET.get('uppercase','off')
 	
-	newlineremover=request.POST.get('line-remover','off')
+	newlineremover=request.GET.get('line-remover','off')
 	
-	extraspaceremover=request.POST.get('space-remover','off')
+	extraspaceremover=request.GET.get('space-remover','off')
 	
 	chr_counter = request.POST.get('count','off')
 	
