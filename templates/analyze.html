@@ -1,0 +1,32 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<html>
+				<head>
+								<style>
+												.container{
+												border : 2px solid green
+}
+								</style>
+<body>
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+ <strong>SUCCESS</strong> your text is analyzed !
+ </div>
+ 
+<h3>Analyze Page</h3>
+
+<h4>Analyzed Method ==> <strong>{{ purpose }}</strong>
+<hr>
+
+<div class='container'>
+
+<h4>Analyzed Text ::  <pre>{{ analyzed_text }}</pre></h4>
+
+
+
+</div>
+
+</body>
+</html>
+
+{% endblock %}
