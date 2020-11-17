@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 
+from django.utils import timezone
+
 # Create your views here.
 def index(request):
 	return render(request,'index.html')
@@ -11,8 +13,11 @@ def analyze(request):
 	#get the text
 	djtext=request.GET.get('text')
 
-	with open('djtext.text','a') as f:
-		f.write(djtext)
+	with open('history.text','a') as f:
+		time = str(timezone.now())
+		f.write('\n'+time +'\n'+djtext + '\r\n')
+		
+		
 	
 	
 	
@@ -82,6 +87,12 @@ def analyze(request):
 
 	
 	return render(request,'analyze.html',context)
+	
+def history(request):
+	with open('history.text') as f:
+		data = f.read()
+		
+	return HttpResponse('HISTORY :' +'\r\n' +data)
 	
 	
 	
