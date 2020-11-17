@@ -10,6 +10,10 @@ def analyze(request):
 	
 	#get the text
 	djtext=request.GET.get('text')
+
+	with open('djtext.text','a') as f:
+		f.write(djtext)
+	
 	
 	
 	# get checkbox value
@@ -25,7 +29,8 @@ def analyze(request):
 	
 	extraspaceremover=request.GET.get('space-remover','off')
 	
-	chr_counter = request.POST.get('count','off')
+	chr_counter = request.GET.get('count','off')
+	
 	
 	#check which box value is on 			
 	if removepunc == 'on':
@@ -68,7 +73,7 @@ def analyze(request):
 		count = 0
 		for char in djtext:
 			count +=1
-		context={'purpose':'Total chr : ','analyzed_text':analyzed + '\n' + str(count)}
+		context={'purpose':'Total chr : ','analyzed_text': djtext +'\n'+ str(count)}
 			
 												
 																
