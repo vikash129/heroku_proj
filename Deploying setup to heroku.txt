@@ -1,0 +1,46 @@
+--->>configure dja to heroku
+
+1-make a 'Procfile'
+Note --->>>'''P will be Capital'''<----
+
+2 - add this 'web :gunicorn myproject.wsgi'
+
+3- pip install these...
+*django
+*gunicorn
+
+
+
+4-add these in requremnts.txt-->>
+* pip freeze > requirements.txt
+
+5-add these in sett.py
+
+*import os
+
+**change :: BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+*Allwed Host =['*']
+
+
+--->deply dej to heroku
+
+type commands--->
+**inside proj folder***
+
+$ git init
+$ git add .
+$ git commit -m 'firsr commit'
+
+$ heroku login
+$ heroku create app_name
+$ git push heroku master
+$ heroku open
+
+Note ::: to see your server / check app        			errors type ::
+
+$ heroku logs --tail --app your_app_name
+ 
+         
+
+
