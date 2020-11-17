@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 from django.utils import timezone
+import datetime
 
 # Create your views here.
 def index(request):
@@ -14,8 +15,13 @@ def analyze(request):
 	djtext=request.GET.get('text')
 
 	with open('history.text','a') as f:
-		time = str(timezone.now())
-		f.write('\n'+time +'\n'+djtext + '\r\n')
+		time = str(datetime.datetime.now())
+		
+		para = djtext.split('\r\n')
+		f.write(f"\n*********\n{time}\n")
+		for line in para:
+			f.write(f"{line}\n")
+		
 		
 		
 	
@@ -91,8 +97,12 @@ def analyze(request):
 def history(request):
 	with open('history.text') as f:
 		data = f.read()
-		
-	return HttpResponse('HISTORY :' +'\r\n' +data)
+	
+	html ='<pre><\pre>%s'% data 
+
+	
+	return HttpResponse(html)
+	
 	
 	
 	
