@@ -17,7 +17,7 @@ pytz==2020.1
 
 dj-static==0.0.6
 
-sqlparse==0.3.1
+sqlparse==0.4.4
 static3==0.7.0
 
 urllib3==1.25.10
