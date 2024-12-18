@@ -20,7 +20,7 @@ dj-static==0.0.6
 sqlparse==0.3.1
 static3==0.7.0
 
-urllib3==1.25.10
+urllib3==1.26.5
 
 
 wrapt==1.12.1
